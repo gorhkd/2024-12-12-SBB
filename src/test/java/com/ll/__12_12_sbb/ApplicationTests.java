@@ -7,10 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class ApplicationTests {
@@ -19,38 +18,13 @@ class ApplicationTests {
     private QuestionRepository questionRepository;
 
     @Test
-    @DisplayName("Id 컬럼은 기본 메서드")
-    void testJpaDictionary() {
+    @DisplayName("수정")
+    void testJpaModify() {
         Optional<Question> oq = this.questionRepository.findById(1);
-        if(oq.isPresent()){
-            Question q = oq.get();
-            assertEquals("sbb가 무엇인가요?", q.getSubject());
-        }
+        assertTrue(oq.isPresent());
+       Question q = oq.get();
+       q.setSubject("수정된 제목");
+       this.questionRepository.save(q);  // 알아서 기존 객체를 찾아서 갱신함.
     }
-
-    @Test
-    @DisplayName("Id를 제외한 컬럼은 findBy + 컬럼명")
-    void testJpaDictionaryFromSubject() {
-        Question q = this.questionRepository.findBySubject("sbb가 무엇인가요?");
-        assertEquals(1, q.getId());
-    }
-
-    @Test
-    @DisplayName("findBy + 컬럼명 + And + 컬럼명")
-    void testJpaDictionaryFromSubjectAndContent() {
-        Question q = this.questionRepository.findBySubjectAndContent("sbb가 무엇인가요?", "sbb에 대해서 알고 싶습니다.");
-        assertEquals(1, q.getId());
-    }
-
-    @Test
-    @DisplayName("findBy + 컬럼명 + Like")
-    void testJpaDictionaryFromLike() {
-        List<Question> qLisst = this.questionRepository.findBySubjectLike("sbb%");
-        Question q = qLisst.get(0);
-        assertEquals("sbb가 무엇인가요?", q.getSubject());
-    }
-
-
-
 
 }

@@ -1,8 +1,9 @@
-package com.ll.__12_12_sbb.Repository;
+package com.ll.__12_12_sbb.answer;
 
-import com.ll.__12_12_sbb.Entity.Answer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface AnswerRepository extends JpaRepository<Answer, Integer> {
 
 }

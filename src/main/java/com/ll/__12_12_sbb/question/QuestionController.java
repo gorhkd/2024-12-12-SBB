@@ -1,12 +1,11 @@
-package com.ll.__12_12_sbb;
+package com.ll.__12_12_sbb.question;
 
 
-import com.ll.__12_12_sbb.question.Question;
-import com.ll.__12_12_sbb.question.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -16,11 +15,6 @@ public class QuestionController {
 
     private final QuestionService questionService;
 
-    @GetMapping("/")
-    public String root(Model model) {
-        return "redirect:/question_list";
-    }
-
     @GetMapping("/question/list")
     public String list(Model model) {
         List<Question> questionList = this.questionService.gerList();
@@ -28,4 +22,10 @@ public class QuestionController {
         return "question_list";
     }
 
+    @GetMapping(value = "/question/detail/{id}")
+    public String detail(Model model, @PathVariable("id") Integer id) {
+        Question question = this.questionService.getQuestion(id);
+        model.addAttribute("question", question);
+        return "question_detail";
+    }
 }

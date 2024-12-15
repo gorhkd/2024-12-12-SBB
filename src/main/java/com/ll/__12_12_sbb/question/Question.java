@@ -1,5 +1,6 @@
 package com.ll.__12_12_sbb.question;
 
+
 import com.ll.__12_12_sbb.answer.Answer;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,4 +28,5 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
+
 }

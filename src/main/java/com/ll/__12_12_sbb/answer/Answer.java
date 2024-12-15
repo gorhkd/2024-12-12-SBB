@@ -1,6 +1,5 @@
 package com.ll.__12_12_sbb.answer;
 
-
 import com.ll.__12_12_sbb.question.Question;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,16 +13,17 @@ import java.time.LocalDateTime;
 @Entity
 public class Answer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Integer id;
 
-    @Column(columnDefinition = "TEXT")
-    private String content;
+        @Column(columnDefinition = "TEXT")
+        private String content;
 
-    private LocalDateTime createDate;
+        private LocalDateTime createDate;
 
-    @ManyToOne
-    private Question question;
+        @ManyToOne
+        private Question question;
 
-}
+    }
+

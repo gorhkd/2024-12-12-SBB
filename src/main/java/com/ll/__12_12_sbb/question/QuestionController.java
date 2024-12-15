@@ -10,24 +10,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping("/question")
-@RequiredArgsConstructor
+@RequestMapping("/question") // 프리픽스
+@RequiredArgsConstructor   // 객체 자동 주입
 @Controller
 public class QuestionController {
 
     private final QuestionService questionService;
 
-    @GetMapping("/list")
-    public String list(Model model) {
-        List<Question> questionList = this.questionService.gerList();
+    // 1. URL과 맵핑, 주소 결정
+    // 2. 어떤 model을 보낼지
+
+    @GetMapping("/list") // 메인 페이지 (질문 확인)  || (질문 등록 페이지 필요)
+    public String question(Model model) {
+        List<Question> questionList = this.questionService.getList();
         model.addAttribute("questionList", questionList);
         return "question_list";
     }
 
-    @GetMapping(value = "/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Integer id) {
+    @GetMapping("/detail/{id}") // 질문 확인 및 응답 페이지 (답변 등록)
+    public String detail(Model model, @PathVariable("id") Integer id){
         Question question = this.questionService.getQuestion(id);
         model.addAttribute("question", question);
         return "question_detail";
     }
+
 }

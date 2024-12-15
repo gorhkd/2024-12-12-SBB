@@ -2,18 +2,23 @@ package com.ll.__12_12_sbb.answer;
 
 
 import com.ll.__12_12_sbb.question.Question;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@RequiredArgsConstructor
 @Service
 public class AnswerService {
 
-    private final AnswerRepository answerRepository;
+    @Autowired
+    private AnswerRepository answerRepository;
 
-    public void create(Question question, String content){
+    public List<Answer> getAnswerList() {
+       return this.answerRepository.findAll();
+    }
+
+    public void create(Question question, String content) {
         Answer answer = new Answer();
         answer.setContent(content);
         answer.setCreateDate(LocalDateTime.now());

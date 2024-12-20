@@ -1,5 +1,7 @@
 package com.ll.__12_12_sbb;
 
+import com.ll.__12_12_sbb.question.QuestionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 // 1. 질문 데이터 저장
@@ -19,6 +21,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class ApplicationTests {
+
+    @Autowired
+    private QuestionRepository questionRepository;
 
 
 }

@@ -6,6 +6,7 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
 <div class="container my-3">
     <h2 class="border-bottom py-2" th:text="${question.subject}"></h2>
     <div class="card my-3">

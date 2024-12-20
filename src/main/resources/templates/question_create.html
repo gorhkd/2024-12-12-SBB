@@ -6,6 +6,7 @@
 </head>
 <body>
 <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+<nav th:replace="~{navbar :: navbarFragment}"></nav>
 <div layout:fragment="content" class="container">
   <h5 class="my-3 border-bottom pb-2">질문등록</h5>
   <form th:action="@{/question/create}" th:object="${questionForm}" method="post">

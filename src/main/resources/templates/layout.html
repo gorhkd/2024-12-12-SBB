@@ -2,12 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
-  <link th:href="@{/bootstrap.min.css}" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
+  <!-- sbb CSS -->
+  <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+  <title>Hello, sbb!</title>
 </head>
 <body>
+<!-- 네비게이션바 -->
 <nav th:replace="~{navbar :: navbarFragment}"></nav>
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 <th:block layout:fragment="content"></th:block>

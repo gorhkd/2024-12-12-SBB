@@ -1,8 +1,11 @@
 package com.ll.__12_12_sbb;
 
+<<<<<<< HEAD
 import com.ll.__12_12_sbb.answer.AnswerRepository;
 import com.ll.__12_12_sbb.question.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+>>>>>>> 4bff342f5417b9d06f5b9781db29d60a411952e8
 import org.springframework.boot.test.context.SpringBootTest;
 
 // 1. 질문 데이터 저장
@@ -17,24 +20,40 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ApplicationTests {
 
+<<<<<<< HEAD
     @Autowired
     private QuestionRepository questionRepository;
     @Autowired
     private AnswerRepository answerRepository;
 
+=======
+//    @Autowired
+//    private QuestionRepository questionRepository;
+//    @Autowired
+//    private AnswerRepository answerRepository;
+//
+>>>>>>> 4bff342f5417b9d06f5b9781db29d60a411952e8
 //    @Test
 //    @DisplayName("질문 데이터 저장")
 //    void test1() {
 //        Question q1 = new Question();
 //        q1.setSubject("SBB 게시판 질문");
 //        q1.setContent("질문을 어떻게하나요?");
+<<<<<<< HEAD
 //        q1.setCreateDate(LocalDateTime.now());
+=======
+//        q1.setCreateTime(LocalDateTime.now());
+>>>>>>> 4bff342f5417b9d06f5b9781db29d60a411952e8
 //        questionRepository.save(q1);
 //
 //        Question q2 = new Question();
 //        q2.setSubject("SBB 게시판 답변");
 //        q2.setContent("답변을 어떻게하나요?");
+<<<<<<< HEAD
 //        q2.setCreateDate(LocalDateTime.now());
+=======
+//        q2.setCreateTime(LocalDateTime.now());
+>>>>>>> 4bff342f5417b9d06f5b9781db29d60a411952e8
 //        questionRepository.save(q2);
 //    }
 //

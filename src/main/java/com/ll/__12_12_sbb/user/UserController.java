@@ -2,6 +2,7 @@ package com.ll.__12_12_sbb.user;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +32,17 @@ public class UserController {
             return "signup_form";
         }
 
-        this.userService.create(userCreateForm.getUsername(), userCreateForm.getPassword1(), userCreateForm.getEmail());
-        return "redirect:/";
-
+        try {
+            this.userService.create(userCreateForm.getUsername(), userCreateForm.getPassword1(), userCreateForm.getEmail());
+        } catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
+            return "signup_form";
+        } catch (Exception e){
+             e.printStackTrace();
+             bindingResult.reject("signupFailed", e.getMessage());
+        }
+             return "redirect:/";
     }
 
 

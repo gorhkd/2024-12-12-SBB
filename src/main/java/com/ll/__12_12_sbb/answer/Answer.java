@@ -2,6 +2,7 @@ package com.ll.__12_12_sbb.answer;
 
 
 import com.ll.__12_12_sbb.question.Question;
+import com.ll.__12_12_sbb.user.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +24,7 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 }
